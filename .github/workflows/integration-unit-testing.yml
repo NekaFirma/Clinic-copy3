@@ -35,6 +35,11 @@ jobs:
         if: env.DIFF_DETECTED == 'true'
         run: dotnet build $PROJECT --configuration $config --no-restore 
 
+      - name: Setup RabbitMQ
+        # You may pin to the exact commit or the version.
+        # uses: nijel/rabbitmq-action@96dd774dc1eac4470a50826a1add56ad646fba6a
+        uses: nijel/rabbitmq-action@v1.0.0
+
       - name: Test with dotnet
         if: env.DIFF_DETECTED == 'true'
         run: dotnet test $TEST --verbosity quiet
