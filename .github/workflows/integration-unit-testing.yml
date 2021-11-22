@@ -1,5 +1,7 @@
 name: Integration Unit Test
 on:
+  push:
+    branches: [ main ]
   pull_request:
     branches: [ master, develop ]
 jobs:
